@@ -2,6 +2,7 @@
 
 import React, { useState, useEffect } from 'react'
 import Link from 'next/link'
+import Image from 'next/image'
 import { useAuth } from '@/contexts/AuthContext'
 import './landing.css'
 
@@ -58,7 +59,7 @@ export default function LandingPage() {
         <div className="nav-container">
           <div className="logo">
             <Link href="/" style={{ textDecoration: 'none' }}>
-              <img src="/elanora-logo-new.png" alt="Elanora Group" className="logo-image" />
+              <Image src="/elanora-logo-new.png" alt="Elanora Group" className="logo-image" width={200} height={50} priority />
             </Link>
           </div>
           <ul className="nav-menu">
@@ -122,7 +123,7 @@ export default function LandingPage() {
       {/* Hero Section */}
       <section className="hero" id="home">
         <div className="hero-background-wrapper">
-          <img src="/plane-illustration.png" alt="Business Solutions Illustration" className="hero-background-image" />
+          <Image src="/plane-illustration.png" alt="Business Solutions Illustration" className="hero-background-image" fill style={{ objectFit: 'cover' }} priority />
         </div>
         <div className="hero-content-overlay">
           <h1 className="hero-headline">
@@ -185,7 +186,7 @@ export default function LandingPage() {
                 ></textarea>
               </div>
               <button type="submit" className="btn-submit">Submit</button>
-              <p className="form-disclaimer">Your name won't be shared. Never submit passwords.</p>
+              <p className="form-disclaimer">Your name won&apos;t be shared. Never submit passwords.</p>
             </form>
           </div>
         </div>
@@ -288,11 +289,11 @@ export default function LandingPage() {
               At Elanora Group, we are a team of highly skilled and experienced professionals dedicated to providing top-notch Accounting, Legal, Taxation, and Technology solutions. Our mission is to empower businesses with reliable expertise, Real results.
             </p>
             <p className="about-text">
-              We pride ourselves on our commitment to excellence, integrity, and client satisfaction. Whether you're a startup or an established enterprise, we tailor our services to meet your unique needs.
+              We pride ourselves on our commitment to excellence, integrity, and client satisfaction. Whether you&apos;re a startup or an established enterprise, we tailor our services to meet your unique needs.
             </p>
           </div>
           <div className="about-image">
-            <img src="/elanora-logo.png.png" alt="Elanora Building" />
+            <Image src="/elanora-logo.png.png" alt="Elanora Building" width={500} height={400} />
           </div>
         </div>
       </section>
@@ -321,7 +322,7 @@ export default function LandingPage() {
               </div>
             </div>
             <div className="accounting-image">
-              <img src="https://images.unsplash.com/photo-1554224155-6726b3ff858f?w=800&h=600&fit=crop" alt="Accounting Services" />
+              <Image src="https://images.unsplash.com/photo-1554224155-6726b3ff858f?w=800&h=600&fit=crop" alt="Accounting Services" width={800} height={600} />
             </div>
           </div>
         </div>
@@ -331,7 +332,7 @@ export default function LandingPage() {
       <section className="quality-section">
         <div className="quality-container">
           <div className="quality-image">
-            <img src="https://images.unsplash.com/photo-1556761175-b413da4baf72?w=800&h=600&fit=crop" alt="Quality Assurance" />
+            <Image src="https://images.unsplash.com/photo-1556761175-b413da4baf72?w=800&h=600&fit=crop" alt="Quality Assurance" width={800} height={600} />
           </div>
           <div className="quality-content">
             <div className="quality-stars">
@@ -369,7 +370,7 @@ export default function LandingPage() {
               </div>
             </div>
             <div className="hr-image">
-              <img src="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?w=800&h=600&fit=crop" alt="HR Solutions" />
+              <Image src="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?w=800&h=600&fit=crop" alt="HR Solutions" width={800} height={600} />
             </div>
           </div>
         </div>
@@ -392,7 +393,7 @@ export default function LandingPage() {
             </div>
           </div>
           <div className="innovation-image">
-            <img src="https://images.unsplash.com/photo-1521737711867-e3b97375f902?w=800&h=600&fit=crop" alt="Team Collaboration" />
+            <Image src="https://images.unsplash.com/photo-1521737711867-e3b97375f902?w=800&h=600&fit=crop" alt="Team Collaboration" width={800} height={600} />
           </div>
         </div>
       </section>

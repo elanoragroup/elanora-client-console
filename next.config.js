@@ -7,6 +7,12 @@ const nextConfig = {
   images: {
     formats: ['image/webp'],
     minimumCacheTTL: 60,
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: 'images.unsplash.com',
+      },
+    ],
   },
   // Experimental features for better performance
   experimental: {

@@ -1,0 +1,26 @@
+// =============================================
+// BYPASS DATABASE COMPLETELY - EMERGENCY FIX
+// =============================================
+// If the database is completely inaccessible, use this version
+
+// Replace the fetchUserProfile function in contexts/AuthContext.tsx with this:
+
+const fetchUserProfile = async (userId: string, email?: string) => {
+  console.log('Creating user profile in memory (database bypassed):', userId, email)
+
+  // Create user profile in memory without any database calls
+  const basicProfile: User = {
+    id: userId,
+    email: email || '',
+    full_name: undefined,
+    company_name: undefined,
+    phone: undefined,
+    avatar_url: undefined,
+    role: 'client',
+    created_at: new Date().toISOString(),
+    updated_at: new Date().toISOString()
+  }
+
+  setUser(basicProfile)
+  console.log('User profile set in memory:', basicProfile)
+}

@@ -1,13 +1,15 @@
 import { NextRequest, NextResponse } from 'next/server'
 import { createServerSupabaseClient } from '@/lib/supabase-server'
 
+export const dynamic = 'force-dynamic'
+
 export async function GET(request: NextRequest) {
   try {
     const supabase = createServerSupabaseClient()
-    
+
     // Get the current user
     const { data: { user }, error: authError } = await supabase.auth.getUser()
-    
+
     if (authError || !user) {
       return NextResponse.json({ error: 'Unauthorized' }, { status: 401 })
     }
@@ -22,7 +24,7 @@ export async function GET(request: NextRequest) {
 
     if (tableError) {
       console.error('Table check error:', tableError)
-      return NextResponse.json({ 
+      return NextResponse.json({
         error: 'Documents table issue',
         details: tableError.message,
         code: tableError.code
@@ -51,7 +53,7 @@ export async function GET(request: NextRequest) {
 
     if (insertError) {
       console.error('Insert test error:', insertError)
-      return NextResponse.json({ 
+      return NextResponse.json({
         error: 'Insert test failed',
         details: insertError.message,
         code: insertError.code,
@@ -65,7 +67,7 @@ export async function GET(request: NextRequest) {
       .delete()
       .eq('id', insertTest.id)
 
-    return NextResponse.json({ 
+    return NextResponse.json({
       success: true,
       message: 'Documents table is working correctly',
       testData: insertTest
@@ -73,7 +75,7 @@ export async function GET(request: NextRequest) {
 
   } catch (error) {
     console.error('Diagnostic error:', error)
-    return NextResponse.json({ 
+    return NextResponse.json({
       error: 'Internal server error',
       details: error instanceof Error ? error.message : 'Unknown error'
     }, { status: 500 })

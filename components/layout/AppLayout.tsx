@@ -20,8 +20,8 @@ export default function AppLayout({ children }: AppLayoutProps) {
   const pathname = usePathname()
 
   // Define public routes that don't require authentication
-  const publicRoutes = ['/login', '/signup', '/complete-profile', '/landing']
-  const isPublicRoute = publicRoutes.includes(pathname)
+  const publicRoutes = ['/login', '/signup', '/complete-profile', '/']
+  const isPublicRoute = publicRoutes.includes(pathname) || pathname.startsWith('/blog')
 
   useEffect(() => {
 
@@ -32,7 +32,7 @@ export default function AppLayout({ children }: AppLayoutProps) {
 
     // If user is authenticated and on login/signup page, redirect to landing page
     if (!loading && user && (pathname === '/login' || pathname === '/signup')) {
-      router.push('/landing')
+      router.push('/')
     }
   }, [user, loading, pathname, router, isPublicRoute])
 

@@ -15,7 +15,7 @@ export default function CompleteProfilePage() {
   })
   const [loading, setLoading] = useState(false)
   const [error, setError] = useState('')
-  
+
   const { completeProfile, user, loading: authLoading } = useAuth()
   const router = useRouter()
 
@@ -29,7 +29,7 @@ export default function CompleteProfilePage() {
   // Redirect to landing page if profile is already complete
   useEffect(() => {
     if (user && !authLoading && user.company_name && user.full_name) {
-      router.push('/landing')
+      router.push('/')
     }
   }, [user, authLoading, router])
 
@@ -73,8 +73,8 @@ export default function CompleteProfilePage() {
         return
       }
 
-      router.push('/landing')
-      
+      router.push('/')
+
     } catch (error) {
       setError('An unexpected error occurred')
       setLoading(false)
@@ -197,7 +197,7 @@ export default function CompleteProfilePage() {
               <button
                 type="button"
                 className="text-primary-600 hover:text-primary-700 font-medium"
-                onClick={() => router.push('/landing')}
+                onClick={() => router.push('/')}
               >
                 Go to Landing Page
               </button>

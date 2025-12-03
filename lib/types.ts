@@ -3,6 +3,7 @@ export interface User {
   email: string
   full_name?: string
   company_name?: string
+  company_logo?: string
   phone?: string
   avatar_url?: string
   role: 'client' | 'admin' | 'ca'

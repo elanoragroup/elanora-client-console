@@ -16,7 +16,7 @@ export class SharedAuthManager {
   private readonly STORAGE_KEY = AUTH_CONFIG.AUTH_TOKEN_KEY
   private readonly CLIENT_CONSOLE_URL = getClientConsoleUrl()
 
-  private constructor() {}
+  private constructor() { }
 
   static getInstance(): SharedAuthManager {
     if (!SharedAuthManager.instance) {
@@ -42,7 +42,7 @@ export class SharedAuthManager {
       if (!tokenData) return null
 
       const token: AuthToken = JSON.parse(tokenData)
-      
+
       // Check if token is expired
       if (Date.now() > token.expires_at) {
         this.clearAuthToken()
@@ -76,7 +76,7 @@ export class SharedAuthManager {
     }
 
     // Create URL with auth parameters
-    const landingUrl = new URL('/landing', this.CLIENT_CONSOLE_URL)
+    const landingUrl = new URL('/', this.CLIENT_CONSOLE_URL)
     landingUrl.searchParams.set('auth_token', token.access_token)
     landingUrl.searchParams.set('user_id', token.user_id)
     landingUrl.searchParams.set('email', token.email)

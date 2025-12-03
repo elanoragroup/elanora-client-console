@@ -2,6 +2,7 @@
 
 import React, { useState, useEffect, useRef } from 'react'
 import Link from 'next/link'
+import Image from 'next/image'
 import { usePathname } from 'next/navigation'
 import { useNavigation } from '@/contexts/NavigationContext'
 import { useAuth } from '@/contexts/AuthContext'
@@ -91,11 +92,24 @@ function Sidebar({ isOpen, onClose }: SidebarProps) {
         {/* Client Logo Section with Profile Dropdown */}
         <div ref={dropdownRef} className="h-20 flex items-center px-6 border-b border-white/70 relative">
           <div className="flex items-center gap-3 flex-1">
-            <div className="w-10 h-10 bg-gradient-to-br from-primary to-primary-700 rounded-xl flex items-center justify-center ring-2 ring-white/50 text-white">
-              <span className="font-display font-semibold text-lg">
-                {user?.company_name ? user.company_name.substring(0, 2).toUpperCase() :
-                  user?.full_name ? user.full_name.substring(0, 2).toUpperCase() : 'U'}
-              </span>
+            <div className="w-10 h-10 rounded-xl flex items-center justify-center ring-2 ring-white/50 overflow-hidden bg-white">
+              {user?.company_logo ? (
+                <Image
+                  src={user.company_logo}
+                  alt={`${user.company_name || 'Company'} Logo`}
+                  width={40}
+                  height={40}
+                  className="object-contain"
+                />
+              ) : (
+                <Image
+                  src="/favicon.ico"
+                  alt="Default Logo"
+                  width={40}
+                  height={40}
+                  className="object-contain"
+                />
+              )}
             </div>
             <div className="flex-1">
               <h1 className="text-gray-900 font-display font-semibold text-lg leading-tight">

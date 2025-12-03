@@ -2,6 +2,7 @@
 
 import React from 'react'
 import Link from 'next/link'
+import Image from 'next/image'
 import { usePathname } from 'next/navigation'
 import {
   User,
@@ -38,30 +39,19 @@ export default function QuickNav() {
   return (
     <aside className="fixed left-0 top-0 h-screen w-16 surface border-r flex flex-col z-50 shadow-soft-lg hidden lg:flex">
       {/* Elanora Logo */}
-      <Link 
-        href="/dashboard" 
+      <Link
+        href="/dashboard"
         title="Elanora - Go to Dashboard"
         className="h-20 flex items-center justify-center border-b border-primary-700/50 px-2 py-2 group relative"
       >
-        <div className="w-full aspect-square bg-white rounded-2xl p-1 shadow-soft-lg ring-1 ring-black/5 flex items-center justify-center transition-all duration-200 group-hover:scale-105 group-hover:shadow-soft-xl">
-          <svg 
-            viewBox="0 0 100 100" 
-            className="w-full h-full"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <text 
-              x="50" 
-              y="42" 
-              textAnchor="middle" 
-              fontFamily="serif" 
-              fontSize="13" 
-              fontWeight="300"
-              fill="#000000"
-              letterSpacing="-0.3"
-            >
-              elanora.
-            </text>
-          </svg>
+        <div className="w-full aspect-square bg-white rounded-2xl p-1 shadow-soft-lg ring-1 ring-black/5 flex items-center justify-center transition-all duration-200 group-hover:scale-105 group-hover:shadow-soft-xl overflow-hidden">
+          <Image
+            src="/favicon.ico"
+            alt="Elanora Logo"
+            width={52}
+            height={52}
+            className="object-contain"
+          />
         </div>
         {/* Tooltip */}
         <div className="absolute left-full ml-2 px-3 py-1.5 bg-gray-900 text-white text-xs rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none whitespace-nowrap z-50">
@@ -88,7 +78,7 @@ export default function QuickNav() {
               )}
             >
               <Icon className="w-5 h-5" />
-              
+
               {/* Tooltip */}
               <div className="absolute left-full ml-2 px-2 py-1 bg-gray-900 text-white text-xs rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none whitespace-nowrap z-50">
                 {item.label}
@@ -120,7 +110,7 @@ export default function QuickNav() {
               )}
             >
               <Icon className="w-5 h-5" />
-              
+
               {/* Tooltip */}
               <div className="absolute left-full ml-2 px-2 py-1 bg-gray-900 text-white text-xs rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none whitespace-nowrap z-50">
                 {item.label}
@@ -128,7 +118,7 @@ export default function QuickNav() {
             </Link>
           )
         })}
-        
+
         {/* Back to Website Button */}
         <a
           href="https://elanora.com"
@@ -138,7 +128,7 @@ export default function QuickNav() {
           className="group relative w-12 h-12 flex items-center justify-center rounded-xl transition-all duration-200 text-gray-600 hover:text-gray-900 hover:bg-white/60"
         >
           <ExternalLink className="w-5 h-5" />
-          
+
           {/* Tooltip */}
           <div className="absolute left-full ml-2 px-2 py-1 bg-gray-900 text-white text-xs rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none whitespace-nowrap z-50">
             Back to Website
@@ -148,4 +138,3 @@ export default function QuickNav() {
     </aside>
   )
 }
-

@@ -13,14 +13,14 @@ export default function LoginPage() {
   const [showPassword, setShowPassword] = useState(false)
   const [loading, setLoading] = useState(false)
   const [error, setError] = useState('')
-  
+
   const { signIn, user, loading: authLoading } = useAuth()
   const router = useRouter()
 
   // Redirect to landing page when user becomes authenticated
   useEffect(() => {
     if (user && !authLoading) {
-      router.push('/landing')
+      router.push('/')
     }
   }, [user, authLoading, router])
 
@@ -31,7 +31,7 @@ export default function LoginPage() {
 
     try {
       const { error } = await signIn(email, password)
-      
+
       if (error) {
         setError(error)
         setLoading(false)

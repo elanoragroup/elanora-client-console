@@ -53,7 +53,7 @@ export default function BlogPage() {
                     <div className="blog-hero-content">
                         <h1 className="blog-hero-title">Insights & Expertise</h1>
                         <p className="blog-hero-subtitle">
-                            Discover the latest trends, expert advice, and practical tips to help your business thrive in today's dynamic landscape.
+                            Discover the latest trends, expert advice, and practical tips to help your business thrive in today&apos;s dynamic landscape.
                         </p>
                     </div>
                 </section>
@@ -121,7 +121,7 @@ export default function BlogPage() {
                         ) : (
                             <div className="no-results">
                                 <h3>No articles found</h3>
-                                <p>Try adjusting your search or filter criteria to find what you're looking for.</p>
+                                <p>Try adjusting your search or filter criteria to find what you&apos;re looking for.</p>
                             </div>
                         )}
                     </main>
